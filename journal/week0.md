@@ -21,3 +21,14 @@ aws sts get-caller-identity
 aws --cli-auto-prompt
 ```
 ![AWS CLOUD SHELL](assets/aws-cloudshell.png)
+
+## CREATING BUGDET
+### i created a budget using the aws cli in gitpod and i was so much fun,i created three .json files in json folder and i understood the contents of the files.I needed to make sure i was in the right account,so i ran the ```aws sts get-caller-identity``` command in the cli and i was in my IAM user account,i set the budget limit amount to $1 in the ```budget.json``` file and changed my email in the ```budget-notifications-with-subscribers.json``` file.Afterwards i ran the following command to create budget
+```
+aws budgets create-budget \
+    --account-id 130566209967 \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
+```
+![CREATE BUDGET](assets/create-budget.png)
+
