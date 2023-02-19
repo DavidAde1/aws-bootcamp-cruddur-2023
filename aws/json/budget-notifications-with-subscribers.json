@@ -1,0 +1,19 @@
+[
+    {
+        "Notification": {
+            "ComparisonOperator": "GREATER_THAN",
+            "NotificationType": "ACTUAL",
+            "Threshold": 80,
+            "ThresholdType": "PERCENTAGE"
+        },
+        "Subscribers": [
+            {
+                "Address": "davidadekoyejo47@gmail.com",
+                "SubscriptionType": "EMAIL"
+            }
+        ]
+    }
+  ]
+
+
+  
