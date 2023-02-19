@@ -10,3 +10,6 @@
 <?xml version="1.0" encoding="UTF-8"
 ```
 ![Problem encountered](assets/lucid-chart1-wk0.png)
+## AWS CLI INSTALL TO GITPOD
+### i was able to succesfully install the AWS CLI to my gitpod extension on my browser and set the environment vairables of my new IAM user account 
+![AWS CLI INSTALL](assets/aws-cli-install.png)
