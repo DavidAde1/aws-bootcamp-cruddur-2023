@@ -13,3 +13,11 @@
 ## AWS CLI INSTALL TO GITPOD
 ### i was able to succesfully install the AWS CLI to my gitpod extension on my browser and set the environment vairables of my new IAM user account 
 ![AWS CLI INSTALL](assets/aws-cli-install.png)
+
+## OPENING AWS CLOUD SHELL
+### i opened the aws cloudshell in the us-east-2 region and i ran the following commands
+```
+aws sts get-caller-identity
+aws --cli-auto-prompt
+```
+![AWS CLOUD SHELL](assets/aws-cloudshell.png)
