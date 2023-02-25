@@ -28,3 +28,15 @@ export BACKEND_URL="*"
 ```
 ### Now the server is running with some data 
 ![Server is live](assets/port-running.png)
+
+## BUILD CONTAINER IMAGES OF BACKEND
+### I used the following command to build the container image ```docker build -t  backend-flask ./backend-flask``` but i needed to be in the main directory of the application to build a container for ```/backend-flask```
+![Build container image](assets/build-container.png)
+### Now the container image of ```backend-flask``` would be available in the docker page of my gitpod VSCODE
+
+## RUN CONTAINER
+### I used the following command to run the container and set the environment variable of ```FRONTEND_URL & BACKEND_URL```
+```
+docker run --rm -p 4567:4567 -it -e FRONTEND_URL='*' -e BACKEND_URL='*' backend-flask
+```
+![RUN CONTAINER](assets/run-container.png)
