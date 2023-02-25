@@ -40,3 +40,6 @@ export BACKEND_URL="*"
 docker run --rm -p 4567:4567 -it -e FRONTEND_URL='*' -e BACKEND_URL='*' backend-flask
 ```
 ![RUN CONTAINER](assets/run-container.png)
+## GETTING CONTAINER IMAGES AND RUNNING CONTAINER IDS
+### I used ```docker images``` command to get the number images in my gitpod and ```docker ps``` to get the running containers in my gitpod
+![Getting container images and id](get-container-images.png)
