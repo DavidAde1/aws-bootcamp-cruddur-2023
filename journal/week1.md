@@ -1,5 +1,6 @@
 # Week 1 — App Containerization
-## ADDING DOCKERFILE
+## CONTAINERIZE BACKEND
+## Adding dockerfile
 ### so i created a ```dockerfile``` in the ```/backend-flask``` folder and wrote the following line of codes in the file 
 ```
 FROM python:3.10-slim-buster
