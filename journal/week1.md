@@ -43,3 +43,61 @@ docker run --rm -p 4567:4567 -it -e FRONTEND_URL='*' -e BACKEND_URL='*' backend-
 ## GETTING CONTAINER IMAGES AND RUNNING CONTAINER IDS
 ### I used ```docker images``` command to get the number images in my gitpod and ```docker ps``` to get the running containers in my gitpod
 ![Getting container images and id](assets/get-container-images.png)
+## CONTAINERIZE FRONTEND
+## Adding a dockerfile
+### So i created a dockerfile in the ```/frontend-react-js``` folder and i wrote the following line of codes in it
+```
+FROM node:16.18
+
+ENV PORT=3000
+
+COPY . /frontend-react-js
+WORKDIR /frontend-react-js
+RUN npm install
+EXPOSE ${PORT}
+CMD ["npm", "start"]
+```
+![Dockerfile-frontend](assets/dockerfile-frontend.png)
+## Build multiple containers
+### I created a ````docker-compose.yml``` file in the root folder of the app and i wrote the following codes in the file
+```
+version: "3.8"
+services:
+  backend-flask:
+    environment:
+      FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+    build: ./backend-flask
+    ports:
+      - "4567:4567"
+    volumes:
+      - ./backend-flask:/backend-flask
+  frontend-react-js:
+    environment:
+      REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+    build: ./frontend-react-js
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend-react-js:/frontend-react-js
+
+# the name flag is a hack to change the default prepend folder
+# name when outputting the image names
+networks: 
+  internal-network:
+    driver: bridge
+    name: cruddur
+```
+![Creating docker-compose](assets/docker-compose.png)
+### After creating the docker-compose.ymal file,i went to my terminal and ran the ```cd frontend-react-js/``` command to enter the directory,then i ran the ```npm install``` command.I right-clicked on the ```docker-compose.yml``` file in the parent directory and selected the compose up option,this started two containers(aws-bootcamp-cruddur-2023-backend-flask & aws-bootcamp-cruddur-frontend-react-js)
+![Multi-containers](assets/multi-containers.png)
+### i opened the ```aws-frontend-react-js``` container in my browser and the port ```3000``` was working perfectly but it wasn't communicating with the backend.
+![Frontend-working](assets/compose1.png)
+### I couldn't get the issue resolved,so i asked for help in the discord server and someone was kind enough to put me through and i got the problem resolved by making ports ```3000``` and ```4567``` visbility from private to public.I used the following commands to achieve this 
+```
+gp ports visibility 4567:public
+gp ports visibility 3000:public
+```
+![Frontend&Backend-working](assets/compose2.png)
+
+
