@@ -59,7 +59,7 @@ CMD ["npm", "start"]
 ```
 ![Dockerfile-frontend](assets/dockerfile-frontend.png)
 ## Build multiple containers
-### I created a ````docker-compose.yml``` file in the root folder of the app and i wrote the following codes in the file
+### I created a ```docker-compose.yml``` file in the root folder of the app and i wrote the following codes in the file
 ```
 version: "3.8"
 services:
