@@ -19,6 +19,14 @@ tasks:
       cd /workspace/aws-bootcamp-cruddur-2023/frontend-react-js
       npm install
       cd $THEIA_WORKSPACE_ROOT
+ports:
+  - name: frontend
+    port: 3000
+    visibility: public
+    onOpen: open-browser
+  - name: backend
+    port: 4567
+    visibility: public
 
 vscode:
   extensions:
